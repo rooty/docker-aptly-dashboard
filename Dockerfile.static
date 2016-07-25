@@ -2,5 +2,6 @@ FROM tianon/true
 MAINTAINER Benjamin Borbe <bborbe@rocketnews.de>
 ADD aptly_dashboard_server /
 ADD files /files
+RUN mkdir -p /tmp
 EXPOSE 8080
 CMD ["/aptly_dashboard_server"]
