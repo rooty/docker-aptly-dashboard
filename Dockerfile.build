@@ -1,0 +1,7 @@
+FROM golang
+MAINTAINER Benjamin Borbe <bborbe@rocketnews.de>
+ADD Makefile /
+WORKDIR /
+RUN make setup
+RUN make buildgo
+CMD ["/bin/bash"]
