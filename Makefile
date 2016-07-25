@@ -20,7 +20,7 @@ build:
 	rm -rf aptly_dashboard_server files
 
 run:
-	docker run -p 8080:8080 -e PORT=8080 -e LOGLEVEL=debug -e ROOT=/files -e URL=http://aptly.tools.seibert-media.net -e USERNAME= -e PASSWORD= -e PREFIX= bborbe/aptly-dashboard
+	docker run -p 8080:8080 -e PORT=8080 -e LOGLEVEL=debug -e ROOT=/files -e API_PREFIX= -e REPO_URL=http://aptly.tools.seibert-media.net -e API_URL=http://aptly.tools.seibert-media.net -e API_USERNAME= -e API_PASSWORD= bborbe/aptly-dashboard
 
 upload:
 	docker push bborbe/aptly-dashboard
