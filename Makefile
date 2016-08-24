@@ -5,7 +5,10 @@ clean:
 	docker rmi bborbe/aptly-dashboard
 
 setup:
-	go get github.com/bborbe/aptly_dashboard/bin/aptly_dashboard_server
+	mkdir -p ./go/src/github.com/bborbe/aptly_dashboard
+	git clone https://github.com/bborbe/aptly_dashboard.git ./go/src/github.com/bborbe/aptly_dashboard
+	go get -u github.com/Masterminds/glide
+	cd ./go/src/github.com/bborbe/aptly_dashboard && glide install
 
 buildgo:
 	CGO_ENABLED=0 GOOS=linux go build -ldflags "-s" -a -installsuffix cgo -o aptly_dashboard_server ./go/src/github.com/bborbe/aptly_dashboard/bin/aptly_dashboard_server
