@@ -1,4 +1,4 @@
-FROM golang
+FROM golang:1.6.3
 MAINTAINER Benjamin Borbe <bborbe@rocketnews.de>
 ADD Makefile /
 WORKDIR /
