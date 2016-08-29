@@ -4,4 +4,4 @@ ADD aptly_dashboard_server /
 ADD files /files
 ADD tmp /tmp
 EXPOSE 8080
-CMD ["/aptly_dashboard_server"]
+ENTRYPOINT ["/aptly_dashboard_server"]
