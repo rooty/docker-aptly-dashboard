@@ -1,7 +1,8 @@
 FROM tianon/true
 MAINTAINER Benjamin Borbe <bborbe@rocketnews.de>
-ADD aptly_dashboard_server /
-ADD files /files
-ADD tmp /tmp
+COPY aptly_dashboard_server /
+COPY files /files
+COPY tmp /tmp
+COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 EXPOSE 8080
 ENTRYPOINT ["/aptly_dashboard_server"]
