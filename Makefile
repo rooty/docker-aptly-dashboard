@@ -19,12 +19,21 @@ build:
 	docker cp `docker ps -q -n=1 -f ancestor=bborbe/aptly-dashboard-build -f status=exited`:/aptly_dashboard_server .
 	docker cp `docker ps -q -n=1 -f ancestor=bborbe/aptly-dashboard-build -f status=exited`:/go/src/github.com/bborbe/aptly_dashboard/files .
 	docker rm `docker ps -q -n=1 -f ancestor=bborbe/aptly-dashboard-build -f status=exited`
-	mkdir -p tmp
 	docker build --no-cache --rm=true --tag=bborbe/aptly-dashboard -f Dockerfile.static .
-	rm -rf aptly_dashboard_server files tmp
+	rm -rf aptly_dashboard_server files
 
 run:
-	docker run -p 8080:8080 -e PORT=8080 -e LOGLEVEL=debug -e ROOT=/files -e API_PREFIX= -e REPO_URL=http://aptly.tools.seibert-media.net -e API_URL=http://aptly.tools.seibert-media.net -e API_USERNAME= -e API_PASSWORD= bborbe/aptly-dashboard
+	docker run -p 8080:8080 \
+	-e PORT=8080 \
+	-e ROOT=/files \
+	-e API_PREFIX= \
+	-e REPO_URL=http://aptly.benjamin-borbe.de \
+	-e API_URL=http://aptly.benjamin-borbe.de \
+	-e API_USERNAME= \
+	-e API_PASSWORD= \
+	bborbe/aptly-dashboard \
+	-logtostderr \
+	-v=0
 
 upload:
 	docker push bborbe/aptly-dashboard
