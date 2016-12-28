@@ -1,4 +1,4 @@
-# Aptly Dashboard Dockerfile
+# Aptly Dashboard
 
 ## Copyright and license
 
