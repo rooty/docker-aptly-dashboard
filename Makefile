@@ -25,7 +25,8 @@ build:
 	rm -rf aptly_dashboard_server files
 
 run:
-	docker run -p 8080:8080 \
+	docker run \
+	-p 8080:8080 \
 	-e PORT=8080 \
 	-e ROOT=/files \
 	-e API_PREFIX= \
