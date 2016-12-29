@@ -1,5 +1,6 @@
 FROM golang:1.7
 MAINTAINER Benjamin Borbe <bborbe@rocketnews.de>
+ARG VERSION
 COPY Makefile /
 WORKDIR /
 RUN make setup
