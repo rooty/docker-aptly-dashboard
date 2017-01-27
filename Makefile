@@ -8,9 +8,10 @@ clean:
 	docker rmi $(REGISTRY)/bborbe/aptly-dashboard-build:$(VERSION)
 	docker rmi $(REGISTRY)/bborbe/aptly-dashboard:$(VERSION)
 
+checkout:
+	git -C sources pull || git clone -b $(BRANCH) --single-branch --depth 1 https://github.com/bborbe/aptly_dashboard.git sources
+
 setup:
-	mkdir -p ./go/src/github.com/bborbe/aptly_dashboard
-	git clone -b $(BRANCH) --single-branch --depth 1 https://github.com/bborbe/aptly_dashboard.git ./go/src/github.com/bborbe/aptly_dashboard
 	go get -u github.com/Masterminds/glide
 	cd ./go/src/github.com/bborbe/aptly_dashboard && glide install
 

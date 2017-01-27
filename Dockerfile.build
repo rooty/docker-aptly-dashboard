@@ -2,6 +2,7 @@ FROM golang:1.7
 MAINTAINER Benjamin Borbe <bborbe@rocketnews.de>
 ARG VERSION
 COPY Makefile /
+COPY sources /go/src/github.com/bborbe/aptly_dashboard
 WORKDIR /
 RUN make setup
 RUN make buildgo
